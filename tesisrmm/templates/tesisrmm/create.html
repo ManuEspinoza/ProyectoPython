@@ -1,0 +1,10 @@
+{% extends "tesisrmm/base.html" %}
+
+{% block content %}
+<h1>Crear tesis</h1>
+    <form method="POST">{% csrf_token %}
+        <h2>Informacion tesis</h2>
+        {{ tesisform.as_p }}
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+{% endblock %}
