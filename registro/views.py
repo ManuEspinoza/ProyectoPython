@@ -10,15 +10,18 @@ def create(request):
 
     if request.method == "POST":
         userFrom = RegistrationForm(request.POST)
-        #grupo_gerente = Group.objects.get(name = "Gerente")
-        #usuario= User.objects.get(username=request.POST.get("username"))
-        #usuario.groups.add(grupo_gerente)
-        #grupo_usuario = Group.objects.get(name = "Usuario")
+    
 
         if userFrom.is_valid():
             userFrom.save()
+            usuario= User.objects.get(username=request.POST.get("username"))
+            value = request.POST.get('rol', None)
+            usuario.groups.add(value)       
     else:
         userFrom = RegistrationForm()
+        
+    
+
 
     return render(request, 'registro/registrar.html', {'userFrom': userFrom})
     

@@ -4,8 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
-    grupos = forms.ModelChoiceField(queryset=Group.objects.all())
-    
+    rol = forms.ModelChoiceField(queryset=Group.objects.all())
 
     class Meta:
         model = User
@@ -15,7 +14,7 @@ class RegistrationForm(UserCreationForm):
             'last_name',
             'email',
             'password1',
-            'password2'
+            'password2',
         )
 
     def save(self, commit=True):
@@ -26,5 +25,5 @@ class RegistrationForm(UserCreationForm):
 
         if commit:
             user.save()
-
+            
         return user
