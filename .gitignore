@@ -110,3 +110,27 @@ myvenv/Scripts/python\.exe
 myvenv/Scripts/pythonw\.exe
 
 myvenv/Scripts/sqlformat\.exe
+
+myvenv/pyvenv\.cfg
+
+myvenv/Scripts/activate
+
+myvenv/Scripts/activate\.bat
+
+myvenv/Scripts/Activate\.ps1
+
+myvenv/Scripts/deactivate\.bat
+
+myvenv/Scripts/django-admin\.exe
+
+myvenv/Scripts/django-admin\.py
+
+myvenv/Scripts/easy_install-3\.7\.exe
+
+myvenv/Scripts/easy_install\.exe
+
+myvenv/Scripts/pip\.exe
+
+myvenv/Scripts/pip3\.7\.exe
+
+myvenv/Scripts/pip3\.exe
