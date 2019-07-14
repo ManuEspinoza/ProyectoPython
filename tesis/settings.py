@@ -34,6 +34,7 @@ STATICFILES_DIRS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'registro.apps.RegistroConfig',
     'tesisrmm.apps.TesisrmmConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'tempus_dominus',
+
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

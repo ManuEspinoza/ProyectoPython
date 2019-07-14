@@ -20,4 +20,5 @@ urlpatterns = [
     path('tesis/', include('tesisrmm.urls')),
     path('admin/', admin.site.urls),
     path('', include('django.contrib.auth.urls')),
+    path('registro/',include('registro.urls')),
 ]
