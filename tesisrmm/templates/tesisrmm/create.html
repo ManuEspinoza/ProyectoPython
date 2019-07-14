@@ -3,13 +3,45 @@
 {{ tesisform.media }}
 {% endblock %}
 {% block content %}
-<div class="row">
-    <div class="col-3">
-        <form method="POST">{% csrf_token %}
+<form method="POST">{% csrf_token %}
+    <div class="row">
+        <div class="col-3">
             <h2>Crear tesis</h2>
-            {{ tesisform.as_p }}
-            <button type="submit" class="btn btn-primary">Guardar</button>
-        </form>
+            {% for field in tesisform %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-3">
+            <h2>Autor</h2>
+            {% for field in autorform %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-3">
+            <h2>Evaluador</h2>
+            {% for field in evaluadorform %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-3">
+            <h2>Palabras claves</h2>
+            {% for field in palabraform %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+            {% endfor %}
+        </div>
     </div>
-</div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
 {% endblock %}

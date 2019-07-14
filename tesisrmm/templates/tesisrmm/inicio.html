@@ -1,0 +1,24 @@
+{% extends "tesisrmm/base.html" %}
+
+{% block content %}
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Estatus</th>
+        <th scope="col">Calificacion</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for tes in tesis %}
+        <tr>
+        <th>{{tes.nombre}}</th>
+        <td>{{tes.fecha}}</td>
+        <td>{{tes.estatus}}</td>
+        <td>{{tes.calificacion}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
