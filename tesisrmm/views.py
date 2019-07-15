@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import TesisForm, PalabraClaveForm, AutorForm, EvaluadorForm, BuscadorForm
 from .models import Tesis, Autor, Evaluador, PalabraClave
 from django.contrib.auth.decorators import permission_required, login_required
@@ -18,7 +18,7 @@ def index(request):
         user = request.user
         buscadorform = BuscadorForm()
         tesis = Tesis.objects.all().order_by('-id')[:6]
-    return render(request, 'tesisrmm/inicio.html', {'tesis': tesis, 'buscadorform': buscadorform,'user':user})
+    return render(request, 'tesisrmm/inicio.html', {'tesis': tesis, 'buscadorform': buscadorform})
 
 """Vista para crear la tesis, aqui se maneja la logica de los formularios para guardar la tesis en la BD"""
 @permission_required('tesisrmm.add_tesis')
@@ -39,7 +39,7 @@ def create(request):
             palabra = palabraform.save(commit=False)
             palabra.tesis = tesis
             palabra.save()
-            return render(request, 'tesisrmm/inicio.html')
+            return redirect(index)
     else:
         tesisform = TesisForm()
         autorform = AutorForm()
