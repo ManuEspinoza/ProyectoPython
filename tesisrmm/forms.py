@@ -1,7 +1,7 @@
 from django import forms
 from .models import Tesis, Evaluador, Autor, PalabraClave
 from tempus_dominus.widgets import DatePicker
-
+"""Logica tras los distintos formularios de la aplicacion"""
 class StyledErrorForm(forms.Form):
     def is_valid(self):
         ret = forms.Form.is_valid(self)

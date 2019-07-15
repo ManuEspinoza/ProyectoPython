@@ -4,7 +4,7 @@ from .forms import TesisForm, PalabraClaveForm, AutorForm, EvaluadorForm, Buscad
 from .models import Tesis, Autor, Evaluador, PalabraClave
 from django.contrib.auth.decorators import permission_required, login_required
 
-
+"""Vista principal donde se maneja la logica del buscador y se muestran los resultados"""
 def index(request):
     if request.method == "POST":
         palabra = request.POST.get('palabra')
@@ -20,7 +20,7 @@ def index(request):
         tesis = Tesis.objects.all().order_by('-id')[:6]
     return render(request, 'tesisrmm/inicio.html', {'tesis': tesis, 'buscadorform': buscadorform,'user':user})
 
-
+"""Vista para crear la tesis, aqui se maneja la logica de los formularios para guardar la tesis en la BD"""
 @permission_required('tesisrmm.add_tesis')
 def create(request):
     if request.method == "POST":
@@ -39,6 +39,7 @@ def create(request):
             palabra = palabraform.save(commit=False)
             palabra.tesis = tesis
             palabra.save()
+            return render(request, 'tesisrmm/inicio.html')
     else:
         tesisform = TesisForm()
         autorform = AutorForm()

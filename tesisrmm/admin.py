@@ -1,7 +1,7 @@
 from django.contrib import admin 
  
 from .models import Tesis, Evaluador, Autor, PalabraClave
- 
+"""Configuracion para el adminitrador de Django, para que se vea bien"""
 class EvaluadorInline(admin.StackedInline):     
     model = Evaluador     
     extra = 1
