@@ -3,10 +3,10 @@ from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.forms import UserCreationForm
 from .forms import RegistrationForm
+from django.contrib.auth.decorators import permission_required
 
-
-
-def create(request):
+@permission_required('auth.add_user')
+def registrar(request):
 
     if request.method == "POST":
         userFrom = RegistrationForm(request.POST)
@@ -16,7 +16,9 @@ def create(request):
             userFrom.save()
             usuario= User.objects.get(username=request.POST.get("username"))
             value = request.POST.get('rol', None)
-            usuario.groups.add(value)       
+            usuario.groups.add(value) 
+            return render(request, 'registro/registroexitoso.html')
+              
     else:
         userFrom = RegistrationForm()
         

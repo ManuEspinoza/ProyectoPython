@@ -2,11 +2,14 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import TesisForm, PalabraClaveForm, AutorForm, EvaluadorForm
 from .models import Tesis
+from django.contrib.auth.decorators import permission_required
 
 def index(request):
     tesis = Tesis.objects.all()[:5]
     return render(request, 'tesisrmm/inicio.html',{'tesis': tesis})
 
+
+@permission_required('tesisrmm.add_tesis')
 def create(request):
     if request.method == "POST":
         tesisform = TesisForm(request.POST)
