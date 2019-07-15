@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import permission_required, login_required
 
 
 def index(request):
-    print(request.user.get_group_permissions())
     if request.method == "POST":
         palabra = request.POST.get('palabra')
         tesis = [i for i in Tesis.objects.filter(nombre__icontains=palabra)]
@@ -46,7 +45,3 @@ def create(request):
         evaluadorform = EvaluadorForm()
         palabraform = PalabraClaveForm()
     return render(request, 'tesisrmm/create.html', {'tesisform': tesisform, 'autorform': autorform,'evaluadorform': evaluadorform, 'palabraform': palabraform})
-    
-def prueba(request):
-    buscador = BuscadorForm()
-    return render(request, 'tesisrmm/prueba.html',{'buscadorform': buscador})
