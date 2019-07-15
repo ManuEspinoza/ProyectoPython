@@ -27,8 +27,6 @@
                 {{ form|crispy }}              
                 <button type="submit" class="btn btn-primary btn-block">Log in</button>
                 <input type="hidden" name="next" value="{{ next }}" />
-                {# Assumes you setup the password_reset view in your URLconf #}
-                <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
               </form>
             </div>
         </section>
