@@ -38,14 +38,6 @@
                             <a class="nav-link" href="{% url 'tesisrmm:create' %}">Crear Usuario</a>
                         </li>
                      {% endif %}
-                     {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Cerrar sesion</a>
-                        </li>
-                      {% else %}
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">Inciar sesion</a>
-                      </li>
                       {% if user.is_authenticated %}
                       <li class="nav-item">
                           <a class="nav-link" href="{% url 'logout' %}">Logout</a>
