@@ -20,9 +20,11 @@
         <section class="col-12 col-sm-6 col-md-6 col-lg-4">
             <div class="form-group">
               <form class="form-container" method="post">
-                {% csrf_token %}                       
+                {% csrf_token %}    
+                <!--ciclo que recorre todos los atributos de la clase del registro-->      
                 {% for field in userFrom %}
                 <div class="form-group">
+                  <!--nombre del atributo de la clase del registro-->
                   {{ field.label_tag }}
                   {{ field }}
                 </div>

@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.forms import UserCreationForm
 
+"""Defnición de la clase del formulario para el registro de nuevos usuarios"""
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
     rol = forms.ModelChoiceField(queryset=Group.objects.all())

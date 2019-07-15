@@ -13,6 +13,7 @@
     <script src="https://kit.fontawesome.com/8acff52e29.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'Styles/styles.css' %}">
     <title>Tesis RMM</title>
+    <!--Declaración de un bloque para el head de las subvistas-->
     {% block head %}
     {% endblock %}
   </head>
@@ -29,16 +30,19 @@
                       <li class="nav-item">
                           <a class="nav-link" href="{% url 'tesisrmm:index' %}">Inicio</a>
                       </li>
+                      <!--valida los permisos para crear una tesis del usuario actual-->
                       {% if perms.tesisrmm.add_tesis %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'tesisrmm:create' %}">Crear Tesis</a>
                         </li>
                      {% endif %}
+                     <!--valida los permisos para crear un nuevo usuario-->
                      {% if perms.auth.add_user %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'registrar' %}">Crear Usuario</a>
                         </li>
                      {% endif %}
+                     <!--valida si hay un usuario con sesón activa o no-->
                       {% if user.is_authenticated %}
                       <li class="nav-item">
                           <a class="nav-link" href="{% url 'logout' %}">Logout</a>
@@ -53,6 +57,7 @@
           </div>
       </nav>
     <div class="container mt-5">
+      <!--definición del bloque del cuerpo del formulario para las subvistas-->
       {% block content %}
       {% endblock %}
     </div>

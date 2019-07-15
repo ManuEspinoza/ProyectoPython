@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import RegistrationForm
 from django.contrib.auth.decorators import permission_required
 
+"""Logica el metodo para el registro de nuevos usuarios"""
 @permission_required('auth.add_user')
 def registrar(request):
 

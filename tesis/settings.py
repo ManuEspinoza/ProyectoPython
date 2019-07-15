@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Variable que almacena la dirección de la carpeta estática en la que se almacenan los estilos
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # Here you tell django to look for a folder named 'assets'
 ]
