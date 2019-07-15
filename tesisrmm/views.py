@@ -4,7 +4,7 @@ from .forms import TesisForm, PalabraClaveForm, AutorForm, EvaluadorForm, Buscad
 from .models import Tesis, Autor, Evaluador, PalabraClave
 from django.contrib.auth.decorators import permission_required, login_required
 
-@login_required
+
 def index(request):
     print(request.user.get_group_permissions())
     if request.method == "POST":
