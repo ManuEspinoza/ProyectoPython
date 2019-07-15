@@ -2,8 +2,9 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import TesisForm, PalabraClaveForm, AutorForm, EvaluadorForm, BuscadorForm
 from .models import Tesis, Autor, Evaluador, PalabraClave
-from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.decorators import permission_required, login_required
 
+@login_required
 def index(request):
     if request.method == "POST":
         palabra = request.POST.get('palabra')
