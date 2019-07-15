@@ -16,6 +16,7 @@
                     {{ field.label_tag }}
                     {{ field }}
                 </div>
+                {{ field.errors }}
             </div>
             {% endfor %}
     </div>
@@ -32,6 +33,7 @@
                     {{ field.label_tag }}
                     {{ field }}
                 </div>
+                {{ field.errors }}
             </div>
             {% endfor %}
     </div>
@@ -49,6 +51,7 @@
                     {{ field }}
                 </div>
             </div>
+                {{ field.errors }}
             {% endfor %}
     </div>
     <hr class="divisor" />
@@ -64,6 +67,7 @@
                     {{ field.label_tag }}
                     {{ field }}
                 </div>
+                {{ field.errors }}
             </div>
             {% endfor %}
     </div>

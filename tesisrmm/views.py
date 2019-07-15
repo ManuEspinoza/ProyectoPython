@@ -5,8 +5,18 @@ from .models import Tesis
 from django.contrib.auth.decorators import permission_required
 
 def index(request):
-    tesis = Tesis.objects.all()[:5]
-    return render(request, 'tesisrmm/inicio.html',{'tesis': tesis})
+    if request.method == "POST":
+        palabra = request.POST.get('palabra')
+        tesis = [i for i in Tesis.objects.filter(nombre__icontains=palabra)]
+        tesis = tesis + [i.aut_tesis for i in Autor.objects.filter(aut_nombre__icontains=palabra)]
+        tesis = tesis + [i.eva_tesis for i in Evaluador.objects.filter(eva_nombre__icontains=palabra)]
+        tesis = tesis + [i.tesis for i in PalabraClave.objects.filter(palabra__icontains=palabra)]
+        tesis = list(set(tesis))
+        buscadorform = BuscadorForm()
+    else:
+        buscadorform = BuscadorForm()
+        tesis = Tesis.objects.all()[:5]
+    return render(request, 'tesisrmm/inicio.html', {'tesis': tesis, 'buscadorform': buscadorform})
 
 
 @permission_required('tesisrmm.add_tesis')
@@ -34,3 +44,6 @@ def create(request):
         palabraform = PalabraClaveForm()
     return render(request, 'tesisrmm/create.html', {'tesisform': tesisform, 'autorform': autorform,'evaluadorform': evaluadorform, 'palabraform': palabraform})
     
+def prueba(request):
+    buscador = BuscadorForm()
+    return render(request, 'tesisrmm/prueba.html',{'buscadorform': buscador})
