@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import permission_required, login_required
 
 @login_required
 def index(request):
+    print(request.user.get_group_permissions())
     if request.method == "POST":
         palabra = request.POST.get('palabra')
         tesis = [i for i in Tesis.objects.filter(nombre__icontains=palabra)]
@@ -15,9 +16,10 @@ def index(request):
         tesis = list(set(tesis))
         buscadorform = BuscadorForm()
     else:
+        user = request.user
         buscadorform = BuscadorForm()
         tesis = Tesis.objects.all().order_by('-id')[:6]
-    return render(request, 'tesisrmm/inicio.html', {'tesis': tesis, 'buscadorform': buscadorform})
+    return render(request, 'tesisrmm/inicio.html', {'tesis': tesis, 'buscadorform': buscadorform,'user':user})
 
 
 @permission_required('tesisrmm.add_tesis')
