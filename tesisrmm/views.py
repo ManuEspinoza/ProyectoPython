@@ -15,7 +15,7 @@ def index(request):
         buscadorform = BuscadorForm()
     else:
         buscadorform = BuscadorForm()
-        tesis = Tesis.objects.all()[:5]
+        tesis = Tesis.objects.all().order_by('-id')[:6]
     return render(request, 'tesisrmm/inicio.html', {'tesis': tesis, 'buscadorform': buscadorform})
 
 

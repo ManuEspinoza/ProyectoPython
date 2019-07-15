@@ -10,24 +10,28 @@
                 </span>
             </form>
     </div>
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-        <th scope="col">Nombre</th>
-        <th scope="col">Fecha</th>
-        <th scope="col">Estatus</th>
-        <th scope="col">Calificacion</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for tes in tesis %}
-        <tr>
-        <th>{{tes.nombre}}</th>
-        <td>{{tes.fecha}}</td>
-        <td>{{tes.estatus}}</td>
-        <td>{{tes.calificacion}}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+{% if tesis %}
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Calificacion</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tes in tesis %}
+            <tr>
+            <th>{{tes.nombre}}</th>
+            <td>{{tes.fecha}}</td>
+            <td>{{tes.estatus}}</td>
+            <td>{{tes.calificacion}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <h2>No hay resultados</h2>
+{% endif %}
 {% endblock %}
