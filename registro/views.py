@@ -17,7 +17,7 @@ def registrar(request):
             usuario= User.objects.get(username=request.POST.get("username"))
             value = request.POST.get('rol', None)
             usuario.groups.add(value) 
-            return render(request, 'registro/registroexitoso.html')
+            return render(request, 'tesisrmm/inicio.html')
               
     else:
         userFrom = RegistrationForm()
