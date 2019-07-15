@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .forms import TesisForm, PalabraClaveForm, AutorForm, EvaluadorForm
-from .models import Tesis
+from .forms import TesisForm, PalabraClaveForm, AutorForm, EvaluadorForm, BuscadorForm
+from .models import Tesis, Autor, Evaluador, PalabraClave
 from django.contrib.auth.decorators import permission_required
 
 def index(request):
