@@ -4,5 +4,4 @@ app_name = 'tesisrmm'
 urlpatterns = [
     path('', views.index, name='index'),
     path('create/', views.create, name='create'),
-    path('prueba/', views.prueba, name='prueba'),
 ]
