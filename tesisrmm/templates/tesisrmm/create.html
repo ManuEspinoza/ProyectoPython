@@ -3,45 +3,70 @@
 {{ tesisform.media }}
 {% endblock %}
 {% block content %}
-<form method="POST">{% csrf_token %}
+<form style="margin-top:5%" method="POST">{% csrf_token %}
     <div class="row">
-        <div class="col-3">
+        <div class="col-12">
             <h2>Crear tesis</h2>
-            {% for field in tesisform %}
-                <div class="form-group">
-                    {{ field.label_tag }}
-                    {{ field }}
-                </div>
-            {% endfor %}
-        </div>
-        <div class="col-3">
-            <h2>Autor</h2>
-            {% for field in autorform %}
-                <div class="form-group">
-                    {{ field.label_tag }}
-                    {{ field }}
-                </div>
-            {% endfor %}
-        </div>
-        <div class="col-3">
-            <h2>Evaluador</h2>
-            {% for field in evaluadorform %}
-                <div class="form-group">
-                    {{ field.label_tag }}
-                    {{ field }}
-                </div>
-            {% endfor %}
-        </div>
-        <div class="col-3">
-            <h2>Palabras claves</h2>
-            {% for field in palabraform %}
-                <div class="form-group">
-                    {{ field.label_tag }}
-                    {{ field }}
-                </div>
-            {% endfor %}
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <div class="row">
+            {% for field in tesisform %}
+            <div class="col-3">
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+    <hr class="divisor" />
+    <div class="row">
+        <div class="col-12">
+            <h2>Autor</h2>
+        </div>
+    </div>
+    <div class="row">
+            {% for field in autorform %}
+            <div class="col-3">
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+    <hr class="divisor" />
+    <div class="row">
+        <div class="col-12">
+            <h2>Evaluador</h2>
+        </div>
+    </div>
+    <div class="row">
+            {% for field in evaluadorform %}
+            <div class="col-3">
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+    <hr class="divisor" />
+    <div class="row">
+        <div class="col-12">
+            <h2>Palabras claves</h2>
+        </div>
+    </div>
+    <div class="row">
+            {% for field in palabraform %}
+            <div class="col-3">
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+    <button type="submit" style="margin-bottom:2%" class="btn btn-primary float-right">Guardar</button>
 </form>
 {% endblock %}
